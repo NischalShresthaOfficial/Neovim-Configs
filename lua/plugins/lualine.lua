@@ -36,9 +36,11 @@ return {
               symbols = { added = " ", modified = "柳", removed = " " },
             },
           },
-          lualine_c = { "filename" },
-          lualine_x = {
+          lualine_c = {
+            "filename",
             "filetype",
+          },
+          lualine_x = {
             {
               "diagnostics",
               sources = { "nvim_lsp" },
