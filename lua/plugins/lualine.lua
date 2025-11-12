@@ -37,7 +37,6 @@ return {
             },
           },
           lualine_c = {
-            "filename",
             "filetype",
           },
           lualine_x = {
@@ -48,7 +47,6 @@ return {
               colored = true,
               update_in_insert = false,
             },
-            "location",
           },
           lualine_y = {
             "progress",
