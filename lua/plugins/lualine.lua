@@ -47,6 +47,7 @@ return {
               colored = true,
               update_in_insert = false,
             },
+            "location",
           },
           lualine_y = {
             "progress",
