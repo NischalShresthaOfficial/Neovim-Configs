@@ -38,8 +38,6 @@ return {
           },
           lualine_c = {
             "filetype",
-          },
-          lualine_x = {
             {
               "diagnostics",
               sources = { "nvim_lsp" },
@@ -47,6 +45,9 @@ return {
               colored = true,
               update_in_insert = false,
             },
+          },
+          lualine_x = {
+
             "location",
           },
           lualine_y = {
