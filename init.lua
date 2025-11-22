@@ -1,5 +1,8 @@
 require("config.lazy")
 
+vim.o.timeout = true
+vim.o.timeoutlen = 800
+
 vim.api.nvim_set_hl(0, "NormalNC", { link = "Normal" })
 
 local function lighten(color, amount)
