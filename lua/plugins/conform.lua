@@ -10,7 +10,7 @@ return {
       html = { "prettier" },
       css = { "prettier" },
       python = { "black" },
-      php = { "intelephense" },
+      php = { "php_cs_fixer" },
     },
   },
 }
