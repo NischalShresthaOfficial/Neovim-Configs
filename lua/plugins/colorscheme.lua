@@ -5,7 +5,7 @@ return {
     priority = 1000,
     config = function()
       require("tokyonight").setup({
-        style = "night", -- storm | moon | night | day
+        style = "night",
         transparent = false,
         terminal_colors = true,
         styles = {
@@ -16,6 +16,8 @@ return {
           sidebars = "dark",
           floats = "dark",
         },
+        on_colors = function(_) end,
+        on_highlights = function(_, _) end,
       })
 
       vim.cmd.colorscheme("tokyonight")
