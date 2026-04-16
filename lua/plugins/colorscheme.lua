@@ -1,26 +1,16 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    "olivercederborg/poimandres.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require("tokyonight").setup({
-        style = "night",
-        transparent = false,
-        terminal_colors = true,
-        styles = {
-          comments = { italic = true },
-          keywords = { italic = true },
-          functions = {},
-          variables = {},
-          sidebars = "dark",
-          floats = "dark",
-        },
-        on_colors = function(_) end,
-        on_highlights = function(_, _) end,
+      require("poimandres").setup({
+        bold_vert_split = true,
+        dim_nc_background = true,
+        disable_background = false,
+        disable_float_background = false,
       })
-
-      vim.cmd.colorscheme("tokyonight")
+      vim.cmd.colorscheme("poimandres")
     end,
   },
 }
