@@ -83,6 +83,7 @@ require("lazy").setup({
 
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
+vim.g.colors_name = require("chadrc").base46.theme
 
 require("options")
 require("autocmds")
