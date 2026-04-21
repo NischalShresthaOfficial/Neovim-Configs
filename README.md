@@ -1,6 +1,6 @@
-# 💤 Neovim Config
+# Neovim Config
 
-This repository contains my personal Neovim configuration.
+This repository contains my personal NvChad-based Neovim configuration.
 
 ## 🚀 Installation
 

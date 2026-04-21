@@ -1,29 +1,38 @@
-require("config.lazy")
+vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46/"
+vim.g.mapleader = " "
 
-vim.o.timeout = true
-vim.o.timeoutlen = 800
-
-vim.api.nvim_set_hl(0, "NormalNC", { link = "Normal" })
-
-local function lighten(color, amount)
-  local r = bit.rshift(bit.band(color, 0xFF0000), 16)
-  local g = bit.rshift(bit.band(color, 0x00FF00), 8)
-  local b = bit.band(color, 0x0000FF)
-  r = math.min(255, r + amount)
-  g = math.min(255, g + amount)
-  b = math.min(255, b + amount)
-  return string.format("#%02x%02x%02x", r, g, b)
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
+vim.opt.rtp:prepend(lazypath)
 
-local bg = vim.api.nvim_get_hl(0, { name = "Normal" }).bg
-if bg then
-  vim.api.nvim_set_hl(0, "WinSeparator", {
-    fg = lighten(bg, 20),
-    bg = "NONE",
-  })
-else
-  vim.api.nvim_set_hl(0, "WinSeparator", {
-    fg = "#3a3a3a",
-    bg = "NONE",
-  })
-end
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+  },
+  { import = "plugins" },
+}, require("configs.lazy"))
+
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require("options")
+require("autocmds")
+
+vim.schedule(function()
+  require("mappings")
+end)
