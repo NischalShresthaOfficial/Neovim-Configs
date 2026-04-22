@@ -6,3 +6,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end,
 })
+
+local function set_git_highlights()
+  vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", {
+    fg = "#ffffff",
+    italic = true,
+  })
+  vim.api.nvim_set_hl(0, "St_gitIcons", {
+    fg = "#ffffff",
+    bold = true,
+  })
+end
+
+set_git_highlights()
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = set_git_highlights,
+})
