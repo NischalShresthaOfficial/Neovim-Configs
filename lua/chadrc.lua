@@ -2,14 +2,17 @@
 local M = {}
 
 M.base46 = {
-  theme = "kanagawa",
-  theme_toggle = { "kanagawa", "kanagawa" },
+  theme = "tokyonight",
 
   hl_override = {
-    Comment = { italic = true },
-    ["@comment"] = { italic = true },
+    Comment = { italic = false },
+    ["@comment"] = { italic = false },
     NormalNC = { link = "Normal" },
   },
+}
+
+M.nvdash = {
+  load_on_startup = true,
 }
 
 return M

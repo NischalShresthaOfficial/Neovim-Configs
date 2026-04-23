@@ -10,11 +10,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 local function set_git_highlights()
   vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", {
     fg = "#ffffff",
-    italic = true,
+    italic = false,
+    bold = false,
   })
   vim.api.nvim_set_hl(0, "St_gitIcons", {
     fg = "#ffffff",
-    bold = true,
+    bold = false,
+    italic = false,
   })
 end
 
